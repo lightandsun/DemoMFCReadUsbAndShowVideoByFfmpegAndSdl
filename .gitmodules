@@ -1,0 +1,6 @@
+[submodule "MFC_ReadUsbAndShowVideoByFfmpegAndSdl/SDL2-2.0.12"]
+	path = MFC_ReadUsbAndShowVideoByFfmpegAndSdl/SDL2-2.0.12
+	url = git@github.com:lightandsun/SDL2-2.0.12.git
+[submodule "MFC_ReadUsbAndShowVideoByFfmpegAndSdl/ffmpeg-4.3.1-2020-09-21-full_build-shared"]
+	path = MFC_ReadUsbAndShowVideoByFfmpegAndSdl/ffmpeg-4.3.1-2020-09-21-full_build-shared
+	url = git@github.com:lightandsun/ffmpeg-4.3.1-2020-09-21-full_build-shared.git
