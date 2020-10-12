@@ -38,3 +38,43 @@
   swresample.lib
   swscale.lib
   SDL2.lib
+  
+# 附：Git Submodule 管理项目子模块
+- 添加一个子模块
+  git submodule add 子模块地址 自定义到当前工程的路径
+  git commit
+  git push
+
+- 克隆/更新带子模块的工程
+  方法一：
+  git clone 工程地址，  进入工程后
+  git submodule init  (init 操作只需要在刚clone下来时执行一下就行了，以后就不需要执行了)
+  git submodule update
+
+  方法二：
+  git clone 工程地址 --recursive
+
+- 注意：上述两种方法只能更新父工程的提交时的状态，如果把所有子模块都更新到最新的状态需要再执行下述命令
+  git submodule update --remote --merge
+- 或者在项目中，进入到子模块目录下，执行 git pull更新，查看git log查看相应提交。完成后返回到项目目录，可以看到子模块有待提交的更新，使用git add，提交即可。
+
+- 问题来了，那么经过2.3后，还想保存此时的状态怎么办
+  git status 后会发现对应改动的子模块，之后
+  git add 最新的子模块即可
+  git commit
+  git pull
+
+- 更新包含子模块的工程
+  git pull
+  git submodule update
+
+- 批量操作
+  git submodule foreach  + git命令即可
+  例如 批量切换所有子模块到 master ， git submodule foreach git checkout master
+
+- 其他：删除子模块
+  rm -rf 子模块目录 删除子模块目录及源码
+  vi .gitmodules 删除项目目录下.gitmodules文件中子模块相关条目
+  vi .git/config 删除配置项中子模块相关条目
+  rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个目录，注意只删除对应的子模块目录即可
+  git rm --cached 子模块名称 （如果再添加子模块报错的话可以执行该命令）
